@@ -1,0 +1,26 @@
+[
+  {
+    "title": "JavaScript",
+    "size": "45"
+  },
+  {
+    "title": "Lit",
+    "size": "40"
+  },
+  {
+    "title": "TailwindCSS",
+    "size": "70"
+  },
+  {
+    "title": "Sass",
+    "size": "60"
+  },
+  {
+    "title": "React",
+    "size": "50"
+  },
+  {
+    "title": "GitHub",
+    "size": "50"
+  }
+]

@@ -1,63 +1,74 @@
 ---
+import skills from '../data/skills.json'
 export interface Props {
-	title: string;
-	body: string;
-	href: string;
+  title: string
+  image: string
+  url: string
+  width: number
+  height: number
+  tags: string[]
 }
 
-const { href, title, body } = Astro.props;
+const { title, url, image, tags, width, height } = Astro.props
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
-<style>
-	.link-card {
-		list-style: none;
-		display: flex;
-		padding: 0.25rem;
-		background-color: white;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 0.6rem;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-	}
+<a
+  target='_blank'
+  href={url}
+  class='mr-auto ml-auto grid w-full max-w-[20rem] cursor-pointer grid-rows-card place-content-center gap-2 overflow-hidden rounded-lg border-[5px] border-transparent bg-[#06459b] p-1 duration-200 ease-card hover:scale-[1.03] lg:hover:border-textColor]'
+>
+  <h3 class='self-center text-center text-2xl font-semibold text-textColor/60'>
+    {title}
+  </h3>
+  <div class='w-full grid place-content-center'>
+    <img
+      width={width}
+      height={height}
+      class='w-ful rounded-lg border-[3px] border-[#030404]/60'
+      src={image}
+      alt=''
+    />
+  </div>
+  <div
+    class='grid grid-cols-5 h-14 w-[288px] place-items-center gap-2 rounded-lg bg-[#060808fa] pl-2 pr-2'
+  >
+    {
+      tags.map((tag) => {
+        const tagData = skills.find((t) => t.title === tag)
+        return (
+          <img
+            class={`${tagData.title.toLowerCase} drop-shadow-2xl  place-self-center duration-200 ease-card  `}
+            title={tagData.title}
+            src={`/${tagData.title.toLowerCase()}.svg`}
+            width={tagData.size - 12}
+            alt={`Logo ${tagData.title}`}
+          />
+        )
+      })
+    }
+  </div>
+</a>
 
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: 1rem 1.3rem;
-		border-radius: 0.35rem;
-		color: #111;
-		background-color: white;
-		opacity: 0.8;
-	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
-		color: #444;
-	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent));
-	}
+<style>
+  .vite:hover {
+    filter: drop-shadow(0 0 0.7rem #646cffaa);
+  }
+  .tailwind:hover {
+    filter: drop-shadow(0 0 0.7rem #00b7d3);
+  }
+  .lit:hover {
+    filter: drop-shadow(0 0 0.7rem #0044ffd3);
+  }
+  .javascript:hover {
+    filter: drop-shadow(0 0 0.7rem #f7de1e57);
+  }
+  .react:hover {
+    filter: drop-shadow(0 0 0.7rem #61dafbaa);
+  }
+  .sass:hover {
+    filter: drop-shadow(0 0 0.7rem #f7729cb7);
+  }
+  .github:hover {
+    filter: drop-shadow(0 0 0.7rem #000000b7);
+  }
 </style>

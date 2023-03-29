@@ -1,0 +1,36 @@
+---
+export interface Props {
+  title: string
+  size: string
+}
+
+const { title, size } = Astro.props
+---
+
+<div title={title} class='relative grid place-content-center w-14 h-10'>
+  <img src={`/${title.toLowerCase()}.svg`} width={size} height={size} alt={`Logo ${title}`} />
+</div>
+
+<script>
+  const elementsWithTooltip = document.querySelectorAll('[title]')
+  console.log(elementsWithTooltip)
+  elementsWithTooltip.forEach((element) => {
+    element.addEventListener('mouseover', () => {
+      const tooltip = document.createElement('div')
+      tooltip.classList.add('tooltip')
+
+      tooltip.textContent = element.getAttribute('title')
+
+      element.removeAttribute('title')
+      element.appendChild(tooltip)
+    })
+
+    element.addEventListener('mouseout', () => {
+      const tooltip = element.querySelector('.tooltip')
+      if (tooltip) {
+        element.setAttribute('title', tooltip.textContent)
+        tooltip.remove()
+      }
+    })
+  })
+</script>

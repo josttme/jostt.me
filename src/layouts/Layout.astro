@@ -37,4 +37,25 @@ const { title } = Astro.props
     padding: 0;
     box-sizing: border-box;
   }
+  .tooltip {
+    position: absolute;
+    top: -70px;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #053b86;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 8px;
+    opacity: 0.9;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    z-index: 100;
+  }
+  @media (max-width: 768px) {
+    .tooltip {
+      display: none;
+    }
+  }
 </style>

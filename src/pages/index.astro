@@ -1,9 +1,11 @@
 ---
 import skills from '../data/skills.json'
+import tools from '../data/tools.json'
 import proyects from '../data/proyects.json'
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
 import Skill from '../components/Skill.astro'
+import Social from '../components/Social.astro'
 ---
 
 <Layout title='josttme'>
@@ -18,7 +20,7 @@ import Skill from '../components/Skill.astro'
       alt='JosttMe Logo'
     />
   </div>
-  <div class='grid w-full place-content-center pt-28 pb-12 text-center gap-5 text-textColor/60'>
+  <div class='grid w-full place-content-center pt-28 pb-8 text-center gap-5 text-textColor/60'>
     <div class='rounded-full overflow-hidden aspect-square w-40 place-self-center'>
       <img
         class='hover:scale-[1.07] scale-[1.02] transition-transform duration-200 ease-card'
@@ -36,17 +38,14 @@ import Skill from '../components/Skill.astro'
     </div>
   </div>
   <div class='mr-auto ml-auto w-10/12 pb-10 lg:w-[1000px]'>
-    <p class='text-[1.2rem] pb-14'>
-      Soy, desarrollador Front-end especializado en JavaScript. Tengo experiencia en tecnologías
-      como HTML, CSS, JavaScript, TailwindCSS y Lit, y estoy familiarizado con herramientas como
-      Vite, npm, Git y GitHub. Actualmente, estoy enfocado en aprender ReactJS y Jest, para
-      poder ofrecer soluciones más robustas y efectivas.
+    <p class='text-[1.2rem] text-center'>
+      Desarrollador Front-end especializado en JavaScript.
     </p>
-
+    <Social />
     <h2
       class='mr-auto ml-auto mb-5 w-full max-w-[20rem] text-2xl font-semibold text-textColor/60 md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
     >
-      Habilidades
+      Tecnologías
     </h2>
     <div
       class='mr-auto ml-auto mb-14 grid max-w-[320px] grid-cols-skills place-items-center gap-4 rounded-lg bg-[#053b86] p-4 lg:max-w-[1000px] lg:pr-64 lg:pl-64'
@@ -71,6 +70,17 @@ import Skill from '../components/Skill.astro'
           />
         ))
       }
+    </div>
+
+    <h2
+      class='mr-auto ml-auto mt-5 mb-5 w-full max-w-[20rem] text-2xl font-semibold text-textColor/60 md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
+    >
+      Herramientas
+    </h2>
+    <div
+      class='mr-auto ml-auto mb-14 grid max-w-[320px] grid-cols-skills place-items-center gap-4 rounded-lg bg-[#053b86] p-4 lg:max-w-[1000px] lg:pr-64 lg:pl-64'
+    >
+      {tools.map(({ title, size }) => <Skill title={title} size={size} />)}
     </div>
   </div>
   <div class='grid w-full place-content-center pt-2 pb-5'>

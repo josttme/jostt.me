@@ -1,11 +1,19 @@
 [
   {
+    "title": "HTML",
+    "size": "50"
+  },
+  {
+    "title": "CSS",
+    "size": "50"
+  },
+  {
     "title": "JavaScript",
-    "size": "45"
+    "size": "40"
   },
   {
     "title": "Lit",
-    "size": "40"
+    "size": "35"
   },
   {
     "title": "TailwindCSS",
@@ -17,10 +25,6 @@
   },
   {
     "title": "React",
-    "size": "50"
-  },
-  {
-    "title": "GitHub",
-    "size": "50"
+    "size": "45"
   }
 ]

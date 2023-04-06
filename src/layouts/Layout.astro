@@ -53,9 +53,34 @@ const { title } = Astro.props
     font-size: 1.2rem;
     z-index: 100;
   }
+  a .tooltip {
+    top: -115%;
+  }
   @media (max-width: 768px) {
     .tooltip {
       display: none;
     }
   }
 </style>
+<script>
+  const elementsWithTooltip = document.querySelectorAll('.title[title]')
+  elementsWithTooltip.forEach((element) => {
+    element.addEventListener('mouseover', () => {
+      const tooltip = document.createElement('div')
+      tooltip.classList.add('tooltip')
+
+      tooltip.textContent = element.getAttribute('title')
+
+      element.removeAttribute('title')
+      element.appendChild(tooltip)
+    })
+
+    element.addEventListener('mouseout', () => {
+      const tooltip = element.querySelector('.tooltip')
+      if (tooltip) {
+        element.setAttribute('title', tooltip.textContent)
+        tooltip.remove()
+      }
+    })
+  })
+</script>

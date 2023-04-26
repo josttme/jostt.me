@@ -6,7 +6,7 @@ module.exports = {
       colors: {
         primary: '#000019',
         secondary: '#0098d4',
-        textColor: '#f9f9f9'
+        textColor: '#fff'
       },
       fontFamily: {
         Nunito: ['Nunito', 'sans-serif']
@@ -18,9 +18,11 @@ module.exports = {
         card: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
         skills: 'repeat(auto-fit, minmax(min(100%, 40px), 1fr))'
       },
-
       gridTemplateRows: {
         card: '30px 1fr  55px'
+      },
+      screens: {
+      'xs': '390px',
       }
     }
   },

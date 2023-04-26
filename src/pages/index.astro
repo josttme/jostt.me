@@ -12,7 +12,7 @@ import Social from '../components/Social.astro'
   <header
     class='flex h-10 w-full place-content-center items-center gap-1 pt-5 text-center opacity-70 lg:justify-start lg:pl-10 lg:text-left'
   >
-    <h2 class='text-2xl font-bold text-textColor/90'>JosttMe</h2>
+    <h2 class='text-2xl font-bold text-textColor'>JosttMe</h2>
     <img
       width='40'
       height='40'
@@ -20,7 +20,7 @@ import Social from '../components/Social.astro'
       alt='JosttMe Logo'
     />
   </header>
-  <section class='grid w-full place-content-center pt-28 text-center gap-5 text-textColor/60'>
+  <section class='grid w-full place-content-center pt-28 text-center gap-5 text-textColor/80'>
     <div class='rounded-full overflow-hidden aspect-square w-40 place-self-center'>
       <img
         class='hover:scale-[1.07] scale-[1.02] transition-transform duration-200 ease-card'
@@ -31,33 +31,32 @@ import Social from '../components/Social.astro'
       />
     </div>
     <div>
-      <h1 class='text-4xl lg:text-5xl'>
-        Hola, soy
-        <span class='name bg-gradient-to-r from-[#00b7ff] to-[#ce00c0]'>Josue Tapia</span>,
+      <h1 class='text-4xl grid grid-cols-1 xs:block xs:grid-cols-2 lg:text-5xl text-[#4b85f1]'>
+        Hola, soy <span class='name bg-gradient-to-r from-[#00c3ff] to-[#d101c3]'>Josue Tapia,</span>
       </h1>
-      <span class='text-3xl lg:text-4xl'>Front End JavaScript</span>
+      <span class='text-3xl  lg:text-4xl text-[#4a98fb]'>Front End JavaScript</span>
     </div>
   </section>
-  <section class='mr-auto ml-auto w-10/12 pt-4 pb-4 grid gap-4 lg:w-[1000px]'>
-    <p class='text-[1.2rem] text-center'>
+  <section class='mr-auto ml-auto w-10/12 pt-4 pb-4 flex flex-col gap-4 lg:w-[1000px]'>
+    <p class='text-[1.2rem] text-center text-[#5588ff]'>
       Desarrollador Front-end especializado en JavaScript.
     </p>
     <Social />
     <div>
       <h2
-        class='mr-auto ml-auto mb-5 w-full max-w-[20rem] text-2xl font-semibold text-textColor/60 md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
+        class='mr-auto ml-auto mb-5 w-full max-w-[20rem] text-2xl font-semibold text-[#5588ff] md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
       >
         Tecnologías
       </h2>
       <div
-        class='mr-auto ml-auto mb-14 grid max-w-[320px] grid-cols-skills place-items-center gap-4 rounded-lg bg-[#053b86] p-4 lg:max-w-[1000px] lg:pr-64 lg:pl-64'
+        class='mr-auto ml-auto mb-14 grid max-w-[320px] grid-cols-skills place-items-center gap-4 rounded-lg bg-[#0057c7] p-4 lg:max-w-[1000px] lg:pr-64 lg:pl-64'
       >
         {skills.map(({ title, size }) => <Skill title={title} size={size} />)}
       </div>
     </div>
     <div>
       <h2
-        class='mr-auto ml-auto w-full max-w-[20rem] text-2xl font-semibold text-textColor/60 md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
+        class='mr-auto ml-auto w-full max-w-[20rem] text-2xl font-semibold text-[#5588ff] md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
       >
         Proyectos
       </h2>
@@ -79,19 +78,19 @@ import Social from '../components/Social.astro'
 
     <div>
       <h2
-        class='mr-auto ml-auto mb-5 w-full max-w-[20rem] text-2xl font-semibold text-textColor/60 md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
+        class='mr-auto ml-auto mb-5 w-full max-w-[20rem] text-2xl font-semibold text-[#5588ff] md:text-center lg:ml-0 lg:w-[1000px] lg:text-left'
       >
         Herramientas
       </h2>
       <div
-        class='mr-auto w-full ml-auto mb-14 grid max-w-[320px] grid-cols-skills place-items-center gap-4 rounded-lg bg-[#053b86] p-4 lg:max-w-[1000px] lg:pr-64 lg:pl-64'
+        class='mr-auto w-full ml-auto mb-14 grid max-w-[320px] grid-cols-skills place-items-center gap-4 rounded-lg bg-[#0057c7] p-4 lg:max-w-[1000px] lg:pr-64 lg:pl-64'
       >
         {tools.map(({ title, size }) => <Skill title={title} size={size} />)}
       </div>
     </div>
   </section>
   <footer class='grid w-full place-content-center pt-2 pb-5'>
-    <span class='text-textColor/50'>&copy; 2023 JosttMe</span>
+    <span class='text-textColor/80/50'>&copy; 2023 JosttMe</span>
   </footer>
 </Layout>
 

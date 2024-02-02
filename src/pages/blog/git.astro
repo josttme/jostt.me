@@ -1,0 +1,104 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Command from '../../components/Command.astro'
+---
+
+<Layout title="git">
+	<main class="min-h-screen py-20 text-white">
+		<h1 class="mb-10 text-center text-2xl">
+			Pasos para configurar Git y conectarlo con GitHub:
+		</h1>
+		<ol
+			class="mx-auto flex w-full max-w-3xl list-decimal flex-col gap-4 px-5 lg:px-0"
+		>
+			<li class="text-xl text-white/90">
+				Instalar Git:
+				<ul class="ml-5 flex list-disc flex-col gap-2">
+					<li>
+						Windows:
+						<p class="py-2 pl-4 text-lg">
+							Descarga el instalador de Git desde la página oficial: <a
+								class="text-gray-400 underline underline-offset-2 hover:text-blue-300"
+								href="https://git-scm.com/download/win"
+								target="_blank"
+								rel="noopener noreferrer"
+								>https://git-scm.com/download/win
+							</a> Ejecuta el archivo .exe y sigue los pasos del asistente de instalación.
+							Puedes dejar las opciones por defecto.
+						</p>
+					</li>
+					<Command
+						title="Ubuntu/Debian:"
+						command=`sudo apt update
+sudo apt install git`
+					/>
+					<Command title="Arch Linux:" command=`sudo pacman -S git` />
+				</ul>
+			</li>
+			<Command
+				title="Configurar tu nombre de usuario y email (reemplaza con tus datos):"
+				command=`git config --global user.name "Tu Nombre"
+git config --global user.email "tunombre@ejemplo.com`
+			/>
+			<Command
+				title="Generar una clave SSH (reemplaza con tu email de GitHub):"
+				command=`ssh-keygen -t ed25519 -C "tunombre@ejemplo.com"`
+			/>
+			<ul class="ml-5 flex list-disc flex-col gap-2 text-lg">
+				<li>
+					ed25519 es un algoritmo introducido en 2012 que utiliza curvas
+					elípticas. Es considerado muy seguro y también más rápido comparado
+					con algoritmos más antiguos.
+				</li>
+				<li>
+					RSA 4096 es más lento para generar las llaves, hacer el
+					cifrado/descifrado en cada conexión SSH y tambien es muy seguro.
+				</li>
+				<li>
+					Sobre la seguridad, ambos ed25519 y 4096 RSA son considerados muy
+					seguros en la actualidad. No se conoce ningún ataque factible contra
+					255 bits de ed25519 o 4096 bits de RSA. Así que en la práctica, ambos
+					son muy seguros se consideran "irrompibles en el futuro previsible".
+				</li>
+			</ul>
+			<Command
+				title="Presiona Enter cuando te pregunte por la ruta del archivo:"
+				command=`(/home/josttme/.ssh/id_ed25519): # Ruta en donde se guardara tu llave`
+			/>
+			<Command
+				title="Ingrese su contraseña y confirme, se usara para hacer git clone, pull, push, ect:"
+				command=`Enter passphrase (empty for no passphrase): # Contraseña
+Enter same passphrase again: # Confirmar contraseña`
+			/>
+			<Command
+				title="Iniciar el agente SSH. El agente SSH es un proceso que se encarga de manejar tus llaves privadas cifradas:"
+				command=`eval "$(ssh-agent -s)"`
+			/>
+			<Command
+				title="Añadir la clave SSH al agente:"
+				command=`ssh-add ~/.ssh/id_ed25519`
+			/>
+			<Command
+				title="Copiar la clave pública:"
+				command=`cat ~/.ssh/id_ed25519.pub # Muestra tu llave publica en la terminal`
+			/>
+			<li class="text-lg">
+				Agrega tu llave publica a GitHub:
+				<p class="text-md py-2 pl-4 text-base">
+					Ve a Settings > SSH and GPG keys > New SSH key. Pega tu clave pública
+					y presiona Add SSH key.
+				</p>
+			</li>
+			<Command
+				title="Clonar un repositorio cualquiera de GitHub:"
+				command=`git clone git@github.com:usuario/repositorio.git`
+			/>
+			<Command
+				title="Para enviar cambios a GitHub:"
+				command=`git add .
+git commit -m "mensaje del commit"
+git push`
+			/>
+		</ol>
+	</main>
+</Layout>

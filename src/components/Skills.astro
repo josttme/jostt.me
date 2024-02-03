@@ -1,0 +1,82 @@
+---
+import Skill from './Skill.astro'
+import { SvgJavaScript } from '../components/icons/SvgJavaScript'
+import { SvgHtml } from '../components/icons/SvgHtml'
+import { SvgCss } from '../components/icons/SvgCss'
+import { SvgReact } from '../components/icons/SvgReact'
+import { SvgTailwind } from '../components/icons/SvgTailwind'
+import { SvgSass } from '../components/icons/SvgSass'
+import { SvgGit } from '../components/icons/SvgGit'
+import { SvgGithub } from '../components/icons/SvgGithub'
+import { SvgVite } from '../components/icons/SvgVite'
+import { SvgNpm } from '../components/icons/SvgNpm'
+import { SvgVscode } from '../components/icons/SvgVscode'
+import { SvgLinux } from '../components/icons/SvgLinux'
+import { SvgAstro } from '../components/icons/SvgAstro'
+---
+
+<section class="relative mx-auto grid w-full gap-5">
+	<div class="glas-skills"></div>
+
+	<h2 class="text-center text-3xl font-semibold text-[#14a1ff]">
+		Tecnologías y Herramientas
+	</h2>
+</section>
+
+<div class="grid w-full grid-cols-[repeat(auto-fit,minmax(90px,1fr))] gap-7">
+	<Skill name="HTML">
+		<SvgHtml />
+	</Skill>
+	<Skill name="CSS">
+		<SvgCss />
+	</Skill>
+	<Skill name="JavaScript">
+		<SvgJavaScript width={14} />
+	</Skill>
+	<Skill name="React">
+		<SvgReact />
+	</Skill>
+	<Skill name="Tailwind">
+		<SvgTailwind />
+	</Skill>
+	<Skill name="SASS">
+		<SvgSass width={14} />
+	</Skill>
+
+	<Skill name="Git">
+		<SvgGit />
+	</Skill>
+	<Skill name="GitHub">
+		<SvgGithub fill="#fff" />
+	</Skill>
+	<Skill name="Vite">
+		<SvgVite />
+	</Skill>
+	<Skill name="NMP">
+		<SvgNpm />
+	</Skill>
+	<Skill name="VSCode">
+		<SvgVscode />
+	</Skill>
+	<Skill name="Linux">
+		<SvgLinux />
+	</Skill>
+	<Skill name="Astro">
+		<SvgAstro />
+	</Skill>
+</div>
+
+<style>
+	.glas-skills {
+		background: rgb(0 153 255/0.1);
+		filter: blur(100px);
+		width: 300px;
+		height: 300px;
+		position: absolute;
+		transform: translate(-50%, -50%);
+		left: 50%;
+		top: 50%;
+		top: 200px;
+		z-index: -1;
+	}
+</style>

@@ -1,0 +1,65 @@
+---
+import JosttStore from './JosttStore.astro'
+import { SvgReact } from './icons/SvgReact'
+import { SvgTailwind } from './icons/SvgTailwind'
+---
+
+<a
+	href="https://jostt-store-watv.vercel.app/"
+	target="_blank"
+	rel="noopener noreferrer"
+	class="grid w-auto cursor-pointer gap-7 rounded-lg border-[5px] border-[#0253bb] bg-[#0253bb] duration-200 ease-card lg:mx-auto lg:w-full lg:p-7 lg:hover:scale-[1.004] lg:hover:border-textColor"
+>
+	<JosttStore />
+	<div class="flex flex-col gap-5 lg:flex-row">
+		<div
+			class="description flex flex-col gap-3 rounded-lg bg-white/70 p-4 text-lg text-black"
+		>
+			<p>
+				JosttStore es una de tienda online desarrollada con Vite, ReactJS,
+				TailwindCSS y configurada con ESLint (Standard), Prettier y Husky.
+			</p>
+			<p>
+				Permite a los usuarios navegar un catálogo de productos, ver detalles,
+				agregar al carrito y a favoritos.
+			</p>
+			<p>
+				Tiene funcionalidades como búsqueda, filtros, paginación, manejo de
+				rutas públicas y privadas, hooks personalizados y Context API para
+				manejo de estado.
+			</p>
+			<p>
+				Para las peticiones a la API GraphQL, se implementó tanstack/react-query
+				para manejar la cache y los estados de carga. El backend contiene una
+				base de datos de productos con imágenes optimizadas de Unsplash y
+				alojado en Vercel.
+			</p>
+			<p>
+				El proyecto me permitió practicar conceptos importantes de React como
+				manejo de formularios, rutas, paginación, hooks, Context, peticiones a
+				API's, autenticación y manejo de locaStorage.
+			</p>
+		</div>
+		<div
+			class="flex place-content-around gap-10 rounded-lg bg-[#060808fa] p-4 lg:w-20 lg:flex-col lg:place-content-start lg:place-items-center"
+		>
+			<SvgReact />
+			<SvgTailwind />
+		</div>
+	</div>
+</a>
+<style>
+	.description {
+		font-family:
+			-apple-system,
+			BlinkMacSystemFont,
+			segoe ui,
+			Roboto,
+			Helvetica,
+			Arial,
+			sans-serif,
+			apple color emoji,
+			segoe ui emoji,
+			segoe ui symbol;
+	}
+</style>

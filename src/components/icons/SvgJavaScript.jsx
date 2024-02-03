@@ -1,8 +1,8 @@
-export const SvgJavaScript = () => (
+export const SvgJavaScript = ({ width }) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 200 200"
-		className="w-14"
+		className={`h-${width}`}
 	>
 		<path fill="#f0db4f" d="M0 0h201v201H0z" />
 		<path

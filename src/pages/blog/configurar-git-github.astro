@@ -1,0 +1,110 @@
+---
+import Pre from '../../components/blog/Pre.astro'
+import H2 from '../../components/blog/H2.astro'
+import Blog from '../../layouts/Blog.astro'
+import { SvgGithub } from '../../components/icons/SvgGithub'
+---
+
+<Blog
+	title="Configurar Git y conectar con GitHub"
+	description="Aprende cómo instalar Git en Windows y Linux. Genera tus llaves SSH, configura tu usuario y email. Luego conecta con GitHub para clonar repositorios y hacer push de tus commits. Tutorial paso a paso para principiantes, todo en un solo lugar."
+>
+	<article class="mx-auto my-10 max-w-4xl">
+		<header class="my-20 grid grid-flow-col grid-cols-5 grid-rows-2">
+			<div class="row-span-2 mr-2 justify-self-end">
+				<SvgGithub fill="#eee" />
+			</div>
+			<h1 class="col-span-4 self-end text-4xl font-semibold">
+				Configurar Git y conectar con GitHub
+			</h1>
+			<time class="text-sm text-white">4 febrero 2024</time>
+		</header>
+		<main>
+			<H2> 1. Instalar Git: </H2>
+			<ul class="ml-5 flex list-disc flex-col gap-2 font-light">
+				<li class="text-xl">
+					Windows:
+					<p class="my-2 py-2 text-lg">
+						Descarga el instalador de Git desde la página oficial: <a
+							class="text-gray-400 underline underline-offset-2 hover:text-blue-300"
+							href="https://git-scm.com/download/win"
+							target="_blank"
+							rel="noopener noreferrer"
+							>https://git-scm.com/download/win
+						</a> Ejecuta el archivo .exe y sigue los pasos del asistente de instalación.
+						Puedes dejar las opciones por defecto.
+					</p>
+				</li>
+				<li class="text-xl">
+					Ubuntu/Debian:
+					<Pre command=`sudo apt update
+	sudo apt install git` />
+				</li>
+				<li class="text-xl">
+					Arch Linux:
+					<Pre command=`sudo pacman -S git` />
+				</li>
+			</ul>
+			<H2>
+				2. Configurar tu nombre de usuario y email (reemplaza con tus datos):
+			</H2>
+			<Pre
+				command=`git config --global user.name "Tu Nombre"
+				git config --global user.email "tunombre@ejemplo.com`
+			/>
+			<H2>3. Generar una clave SSH (reemplaza con tu email de GitHub): </H2>
+			<Pre command=`ssh-keygen -t ed25519 -C "tunombre@ejemplo.com"` />
+			<ul class="my-6 ml-5 flex list-disc flex-col gap-5 text-lg font-light">
+				<li>
+					ed25519 es un algoritmo introducido en 2012 que utiliza curvas
+					elípticas. Es considerado muy seguro y también más rápido comparado
+					con algoritmos más antiguos.
+				</li>
+				<li>
+					RSA 4096 es más lento para generar las llaves, hacer el
+					cifrado/descifrado en cada conexión SSH y tambien es muy seguro.
+				</li>
+				<li>
+					Sobre la seguridad, ambos ed25519 y 4096 RSA son considerados muy
+					seguros en la actualidad. No se conoce ningún ataque factible contra
+					255 bits de ed25519 o 4096 bits de RSA. Así que en la práctica, ambos
+					son muy seguros se consideran "irrompibles en el futuro previsible".
+				</li>
+			</ul>
+			<H2>4. Presiona Enter cuando te pregunte por la ruta del archivo:</H2>
+			<Pre
+				command=`(/home/josttme/.ssh/id_ed25519): # Ruta en donde se guardara tu llave`
+			/>
+			<H2
+				>5. Ingrese su contraseña y confirme, se usara para hacer git clone,
+				pull, push, ect:</H2
+			>
+			<Pre
+				command=`Enter passphrase (empty for no passphrase): # Contraseña
+	Enter same passphrase again: # Confirmar contraseña`
+			/>
+			<H2
+				>6. Iniciar el agente SSH. El agente SSH es un proceso que se encarga de
+				manejar tus llaves privadas cifradas:</H2
+			>
+			<Pre command=`eval "$(ssh-agent -s)"` />
+			<H2>7. Añadir la clave SSH al agente:</H2>
+			<Pre command=`ssh-add ~/.ssh/id_ed25519` />
+			<H2>8. Copiar la clave pública:</H2>
+			<Pre
+				command=`cat ~/.ssh/id_ed25519.pub # Muestra tu llave publica en la terminal`
+			/>
+			<H2>9. Agrega tu llave publica a GitHub:</H2>
+			<p class="my-3 text-lg font-light">
+				Ve a Settings > SSH and GPG keys > New SSH key. Pega tu clave pública y
+				presiona Add SSH key.
+			</p>
+			<H2>10. Clonar un repositorio de GitHub:</H2>
+			<Pre command=`git clone git@github.com:usuario/repositorio.git` />
+			<H2>11. Para enviar cambios a GitHub:</H2>
+			<Pre command=`git add .
+				git commit -m "mensaje del commit"
+				git push` />
+		</main>
+	</article>
+</Blog>

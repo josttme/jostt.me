@@ -7,57 +7,66 @@ import BlogCard from '../components/BlogCard.astro'
 import ProjectCard from '../components/ProjectCard.astro'
 ---
 
-<Layout title="JosttMe">
-	<section
-		class="grid w-full place-content-center gap-5 py-28 text-center text-textColor/80"
-	>
-		<div
-			class="aspect-square w-48 place-self-center overflow-hidden rounded-full"
+<Layout
+	title="JosttMe"
+	description="Soy Josue Tapia, desarrollador Front-end especializado en JavaScript. Con experiencia en tecnologías como HTML, CSS, JavaScript, React y TailwindCSS"
+>
+	<main class="mb-12">
+		<section
+			class="grid w-full place-content-center gap-5 py-28 text-center text-textColor/80"
 		>
-			<img
-				class="scale-[1.02]"
-				width="195"
-				height="195"
-				src="https://res.cloudinary.com/josttme/image/upload/c_fill,h_400,q_50,w_400/v1680077655/1677776757174_xpyblh.webp"
-				alt="Photo of Josue Tapia"
-			/>
-		</div>
-		<div>
-			<h1
-				class="grid grid-cols-1 text-4xl font-bold text-[#4b85f1] xs:block xs:grid-cols-2 lg:text-5xl"
-			>
-				Hola, soy <span
-					class="name bg-gradient-to-r from-[#00c3ff] to-[#d101c3]"
-					>Josue Tapia,</span
-				>
-			</h1>
-			<span class="text-3xl font-bold text-[#4a98fb] lg:text-4xl"
-				>Front End JavaScript</span
-			>
-		</div>
-		<p class="text-center text-3xl text-[#14a1ff]">
-			Desarrollador Front-end especializado en JavaScript.
-		</p>
-		<Social />
-	</section>
-	<section
-		class="mx-2 flex w-auto flex-col gap-7 pb-4 pt-4 lg:mx-auto lg:w-full lg:max-w-6xl"
-	>
-		<h2 class="text-center text-3xl font-semibold text-[#14a1ff]">Proyectos</h2>
-		<div class="grid gap-5">
-			<ProjectCard />
 			<div
-				class="mb-14 grid w-full grid-cols-card place-content-stretch gap-10 pt-5"
+				class="aspect-square w-48 place-self-center overflow-hidden rounded-full"
 			>
-				<Card />
+				<img
+					class="scale-[1.02]"
+					width="195"
+					height="195"
+					src="https://res.cloudinary.com/josttme/image/upload/c_fill,h_400,q_50,w_400/v1680077655/1677776757174_xpyblh.webp"
+					alt="Photo of Josue Tapia"
+				/>
 			</div>
-		</div>
-		<h2 class="mb-2 text-center text-3xl font-semibold text-[#14a1ff]">Blog</h2>
-		<div class="mx-auto grid w-full max-w-2xl gap-14">
-			<BlogCard />
-			<Skills />
-		</div>
-	</section>
+			<div>
+				<h1
+					class="grid grid-cols-1 text-4xl font-bold text-[#4b85f1] xs:block xs:grid-cols-2 lg:text-5xl"
+				>
+					Hola, soy <span
+						class="name bg-gradient-to-r from-[#00c3ff] to-[#d101c3]"
+						>Josue Tapia,</span
+					>
+				</h1>
+				<span class="text-3xl font-bold text-[#4a98fb] lg:text-4xl"
+					>Front End JavaScript</span
+				>
+			</div>
+			<p class="text-center text-3xl text-[#14a1ff]">
+				Desarrollador Front-end especializado en JavaScript.
+			</p>
+			<Social />
+		</section>
+		<section
+			class="mx-2 flex w-auto flex-col gap-7 pb-4 pt-4 lg:mx-auto lg:w-full lg:max-w-6xl"
+		>
+			<h2 class="text-center text-3xl font-semibold text-[#14a1ff]">
+				Proyectos
+			</h2>
+			<div class="grid gap-5">
+				<ProjectCard />
+				<div
+					class="mb-14 grid w-full grid-cols-card place-content-stretch gap-10 pt-5"
+				>
+					<Card />
+				</div>
+			</div>
+			<h2 class="mb-2 text-center text-3xl font-semibold text-[#14a1ff]">
+				Blog
+			</h2>
+			<div class="mx-auto grid w-full max-w-2xl gap-14">
+				<BlogCard />
+				<Skills />
+			</div>
+		</section>
+	</main>
 </Layout>
 
 <style>

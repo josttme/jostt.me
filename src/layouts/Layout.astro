@@ -16,7 +16,6 @@ const { title, description } = Astro.props
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="preload" as="image" href="/logo.png" />
-		<link rel="icon" href="/logo.png" />
 		<link rel="preload" as="image" href="/josttme.webp" />
 		<link
 			rel="preload"
@@ -29,13 +28,15 @@ const { title, description } = Astro.props
 		<link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
 		<link rel="dns-prefetch" href="https://res.cloudinary.com" />
 		<meta name="application-name" content="josu.dev" />
+		<link rel="icon" href="/logo.png" />
+		<meta name="canonical" content="https://josu.dev" />
 
 		<meta
 			name="keywords"
-			content="JosttMe, Josue Tapia, Josue Tapia Linarez, josu"
+			content="JosttMe, Josue Tapia, Josue Tapia Linarez, desarrollo web, Frontend, JavaScript, josu"
 		/>
 
-		<meta name="author" content="Josue Tapia JosttMe" />
+		<meta name="author" content="Josue Tapia (JosttMe)" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title></head

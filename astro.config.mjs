@@ -12,5 +12,6 @@ export default defineConfig({
 	},
 	server: {
 		host: true
-	}
+	},
+	site: 'https://josu.dev'
 })

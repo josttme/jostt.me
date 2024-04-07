@@ -18,15 +18,20 @@ import ProjectCard from '../components/ProjectCard.astro'
 			<div
 				class="aspect-square w-48 place-self-center overflow-hidden rounded-full"
 			>
-				<img
-					class="scale-[1.02]"
-					width="200"
-					height="200"
-					src="/josttme.webp"
-					alt="Foto de Josue Tapia (JosttMe), desarrollador web"
-					title="Josue Tapia (JosttMe), desarrollador web"
-					aria-label="Foto de Josue Tapia (JosttMe), desarrollador web"
-				/>
+				<picture>
+					<source srcset="/josttme.avif" type="image/avif" />
+					<source srcset="/josttme.webp" type="image/webp" />
+					<img
+						src="/josttme.jpg"
+						alt="Descripción de la imagen"
+						width="200"
+						height="200"
+						class="scale-[1.02]"
+						alt="Foto de Josue Tapia (JosttMe), desarrollador web"
+						title="Josue Tapia (JosttMe), desarrollador web"
+						aria-label="Foto de Josue Tapia (JosttMe), desarrollador web"
+					/>
+				</picture>
 			</div>
 			<div>
 				<h1

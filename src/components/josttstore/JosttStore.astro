@@ -1,0 +1,147 @@
+<section
+	class="min-w-6xl grid min-h-[600px] w-full grid-cols-[844px_437px] grid-rows-1 place-content-center rounded-2xl bg-white/90"
+>
+	<div class="h-full w-auto">
+		<picture class="h-full w-auto">
+			<img
+				class="h-full w-auto object-contain shadow-md"
+				src="/projects/1-desktop.png"
+				alt=""
+			/>
+		</picture>
+	</div>
+	<div
+		class="image-slider grid h-full w-auto grid-cols-[auto_1fr_auto] justify-center gap-2 px-2"
+	>
+		<button
+			class="prev h-12 w-12 self-center rounded-full bg-black/50"
+			type="button"
+		>
+			{`<`}
+		</button>
+		<div class="image-container shadow-md">
+			<div class="image-track mx-auto flex h-full w-auto">
+				<picture class="w-full flex-[0_0_100%]">
+					<img
+						class="h-full w-full object-contain"
+						src="/projects/1-mobile.png"
+						alt=""
+					/>
+				</picture>
+				<picture class="flex-[0_0_100%]">
+					<img
+						class="h-full object-contain"
+						src="/projects/2-mobile.png"
+						alt=""
+					/>
+				</picture>
+				<picture class="flex-[0_0_100%]">
+					<img
+						class="h-full object-contain"
+						src="/projects/3-mobile.png"
+						alt=""
+					/>
+				</picture>
+				<picture class="flex-[0_0_100%]">
+					<img
+						class="h-full object-contain"
+						src="/projects/4-mobile.png"
+						alt=""
+					/>
+				</picture>
+				<picture class="flex-[0_0_100%]">
+					<img
+						class="h-full object-contain"
+						src="/projects/5-mobile.png"
+						alt=""
+					/>
+				</picture>
+				<picture class="flex-[0_0_100%]">
+					<img
+						class="h-full object-contain"
+						src="/projects/6-mobile.png"
+						alt=""
+					/>
+				</picture>
+			</div>
+		</div>
+
+		<button
+			class="next h-12 w-12 self-center rounded-full bg-black/50"
+			type="button"
+		>
+			{`>`}
+		</button>
+	</div>
+</section>
+
+<style>
+	.image-slider {
+		position: relative;
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	.image-container {
+		display: flex;
+		overflow: hidden;
+	}
+
+	.image-track {
+		display: flex;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.image-track img {
+		flex: 0 0 100%;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.prev,
+	.next {
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: 24px;
+		padding: 8px 16px;
+		background-color: rgba(0, 0, 0, 0.5);
+		color: #fff;
+		border: none;
+		cursor: pointer;
+	}
+
+	.prev {
+		left: 0;
+	}
+
+	.next {
+		right: 0;
+	}
+</style>
+
+<script>
+	const imageTrack = document.querySelector('.image-track')!
+	const prevBtn = document.querySelector('.prev')!
+	const nextBtn = document.querySelector('.next')!
+	const images = document.querySelectorAll('.image-track picture')
+	let currentIndex = 0
+	const containerWidth = imageTrack.offsetWidth
+
+	// Función para mostrar la siguiente imagen
+	function showNextImage() {
+		currentIndex = (currentIndex + 1) % images.length
+		imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+	}
+
+	// Función para mostrar la imagen anterior
+	function showPrevImage() {
+		currentIndex = (currentIndex - 1 + images.length) % images.length
+		imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+	}
+
+	// Agregar event listeners a los botones
+	prevBtn.addEventListener('click', showPrevImage)
+	nextBtn.addEventListener('click', showNextImage)
+</script>

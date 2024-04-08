@@ -13,11 +13,15 @@
 	<div
 		class="image-slider grid h-full w-auto grid-cols-[auto_1fr_auto] justify-center gap-2 px-2"
 	>
-		<button
-			class="prev h-12 w-12 self-center rounded-full bg-black/50"
-			type="button"
-		>
-			{`<`}
+		<button type="button" class="prev h-12 w-12 self-center rounded-full">
+			<svg viewBox="0 0 22 22">
+				<path
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="m12 15-4-4 4-4"></path>
+			</svg>
 		</button>
 		<div class="image-container shadow-md">
 			<div class="image-track mx-auto flex h-full w-auto">
@@ -65,12 +69,17 @@
 				</picture>
 			</div>
 		</div>
-
-		<button
-			class="next h-12 w-12 self-center rounded-full bg-black/50"
-			type="button"
-		>
-			{`>`}
+		<button type="button" class="next h-12 w-12 self-center rounded-full">
+			<svg viewBox="0 0 22 22">
+				<path
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="m10 15 4-4-4-4"
+				>
+				</path>
+			</svg>
 		</button>
 	</div>
 </section>
@@ -102,46 +111,82 @@
 
 	.prev,
 	.next {
-		top: 50%;
-		transform: translateY(-50%);
-		font-size: 24px;
-		padding: 8px 16px;
-		background-color: rgba(0, 0, 0, 0.5);
 		color: #fff;
-		border: none;
+		border: 1px solid #fff;
+		background-color: rgba(0, 0, 0, 0.4);
+		padding: 2px;
+		opacity: 0.6;
+	}
+
+	.prev.active-button:hover,
+	.next.active-button:hover {
+		opacity: 1;
 		cursor: pointer;
 	}
 
-	.prev {
-		left: 0;
-	}
-
-	.next {
-		right: 0;
+	.disable-button {
+		opacity: 0.6;
+		cursor: not-allowed;
 	}
 </style>
 
 <script>
-	const imageTrack = document.querySelector('.image-track')!
-	const prevBtn = document.querySelector('.prev')!
-	const nextBtn = document.querySelector('.next')!
-	const images = document.querySelectorAll('.image-track picture')
-	let currentIndex = 0
-	const containerWidth = imageTrack.offsetWidth
+	// Obtener referencias a los elementos del DOM
+	const imageTrackElement =
+		document.querySelector<HTMLDivElement>('.image-track')
+	const prevBtnElement = document.querySelector<HTMLButtonElement>('.prev')
+	const nextBtnElement = document.querySelector<HTMLButtonElement>('.next')
+	const images = document.querySelectorAll<HTMLPictureElement>(
+		'.image-track picture'
+	)
 
-	// Función para mostrar la siguiente imagen
-	function showNextImage() {
-		currentIndex = (currentIndex + 1) % images.length
-		imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+	// Verificar si los elementos existen
+	if (imageTrackElement && prevBtnElement && nextBtnElement) {
+		const imageTrack = imageTrackElement
+		const prevBtn = prevBtnElement
+		const nextBtn = nextBtnElement
+
+		let currentIndex = 0
+		const containerWidth = imageTrack.offsetWidth
+
+		// Función para activar/desactivar el botón
+		const toggleButton = (btn: HTMLButtonElement, isActive: boolean) => {
+			btn.disabled = !isActive
+			btn.classList.toggle('disable-button', !isActive)
+			btn.classList.toggle('active-button', isActive)
+		}
+
+		// Función para manejar el estado de los botones
+		const handleButtonState = () => {
+			toggleButton(prevBtn, currentIndex !== 0)
+			toggleButton(nextBtn, currentIndex !== images.length - 1)
+		}
+
+		// Inicializar el estado de los botones
+		handleButtonState()
+
+		// Función para mostrar la siguiente imagen
+		const showNextImage = () => {
+			if (!nextBtn.disabled) {
+				currentIndex = (currentIndex + 1) % images.length
+				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+				handleButtonState()
+			}
+		}
+
+		// Función para mostrar la imagen anterior
+		const showPrevImage = () => {
+			if (!prevBtn.disabled) {
+				currentIndex = (currentIndex - 1 + images.length) % images.length
+				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+				handleButtonState()
+			}
+		}
+
+		// Agregar event listeners a los botones
+		prevBtn.addEventListener('click', showPrevImage)
+		nextBtn.addEventListener('click', showNextImage)
+	} else {
+		console.error('Uno o más elementos del carrusel no se encontraron.')
 	}
-
-	// Función para mostrar la imagen anterior
-	function showPrevImage() {
-		currentIndex = (currentIndex - 1 + images.length) % images.length
-		imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
-	}
-
-	// Agregar event listeners a los botones
-	prevBtn.addEventListener('click', showPrevImage)
-	nextBtn.addEventListener('click', showNextImage)
 </script>

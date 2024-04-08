@@ -23,7 +23,10 @@
 					d="m12 15-4-4 4-4"></path>
 			</svg>
 		</button>
-		<div class="image-container shadow-md">
+		<div class="image-container relative shadow-md">
+			<span
+				class="image-counter absolute right-0 top-0 z-10 m-2 flex items-center rounded-xl border border-solid border-white bg-black/40 px-2 align-middle text-sm leading-normal tracking-widest text-white opacity-0 transition-all"
+			></span>
 			<div class="image-track mx-auto flex h-full w-auto">
 				<picture class="w-full flex-[0_0_100%]">
 					<img
@@ -139,15 +142,17 @@
 	const images = document.querySelectorAll<HTMLPictureElement>(
 		'.image-track picture'
 	)
+	const imageCounter = document.querySelector<HTMLDivElement>('.image-counter')
 
 	// Verificar si los elementos existen
-	if (imageTrackElement && prevBtnElement && nextBtnElement) {
+	if (imageTrackElement && prevBtnElement && nextBtnElement && imageCounter) {
 		const imageTrack = imageTrackElement
 		const prevBtn = prevBtnElement
 		const nextBtn = nextBtnElement
 
 		let currentIndex = 0
 		const containerWidth = imageTrack.offsetWidth
+		let counterTimeout: ReturnType<typeof setTimeout> | null = null
 
 		// Función para activar/desactivar el botón
 		const toggleButton = (btn: HTMLButtonElement, isActive: boolean) => {
@@ -162,7 +167,20 @@
 			toggleButton(nextBtn, currentIndex !== images.length - 1)
 		}
 
-		// Inicializar el estado de los botones
+		const showImageCounter = (index: number) => {
+			imageCounter.textContent = `${index + 1}/${images.length}`
+			imageCounter.style.opacity = '1'
+
+			if (counterTimeout) {
+				clearTimeout(counterTimeout)
+			}
+
+			counterTimeout = setTimeout(() => {
+				imageCounter.style.opacity = '0'
+				counterTimeout = null
+			}, 800)
+		}
+
 		handleButtonState()
 
 		// Función para mostrar la siguiente imagen
@@ -170,6 +188,7 @@
 			if (!nextBtn.disabled) {
 				currentIndex = (currentIndex + 1) % images.length
 				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+				showImageCounter(currentIndex)
 				handleButtonState()
 			}
 		}
@@ -179,6 +198,7 @@
 			if (!prevBtn.disabled) {
 				currentIndex = (currentIndex - 1 + images.length) % images.length
 				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+				showImageCounter(currentIndex)
 				handleButtonState()
 			}
 		}

@@ -5,25 +5,39 @@ import { SvgRedux } from '../icons/SvgRedux'
 import JosttStoreDescription from './JosttStoreDescription.astro'
 ---
 
-<section
-	class="min-w-6xl min-h-[600px] w-full overflow-hidden rounded-2xl bg-[#0253bb]"
->
+<section class="min-w-6xl w-full overflow-hidden rounded-2xl bg-[#0253bb]">
 	<div
-		class="grid place-content-center gap-3 lg:grid-cols-[815px_427px] lg:grid-rows-1 lg:p-5"
+		class="grid min-h-[687px] place-content-center gap-3 lg:grid-cols-[815px_427px] lg:grid-rows-1 lg:p-5"
 	>
 		<div class="h-full w-auto overflow-hidden rounded-xl shadow-md">
 			<picture class="h-full w-auto">
+				<source
+					srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-desktop.avif"
+					type="image/avif"
+				/>
+				<source
+					srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-desktop.webp"
+					type="image/webp"
+				/>
 				<img
 					class="h-full w-auto object-contain"
-					src="/projects/1-desktop.png"
-					alt=""
+					src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-desktop.webp"
+					alt="image 1 desktop JosttStore"
+					width="800"
+					height="500"
 				/>
 			</picture>
 		</div>
 		<div
 			class="image-slider grid h-full w-auto grid-cols-[auto_1fr_auto] justify-center gap-2 px-2"
 		>
-			<button type="button" class="prev h-12 w-12 self-center rounded-full">
+			<button
+				type="button"
+				aria-label="Prev"
+				title="Prev"
+				aria-labelledby="Prev"
+				class="prev h-12 w-12 self-center rounded-full"
+			>
 				<svg viewBox="0 0 22 22">
 					<path
 						fill="none"
@@ -39,50 +53,105 @@ import JosttStoreDescription from './JosttStoreDescription.astro'
 				></span>
 				<div class="image-track mx-auto flex h-full w-auto">
 					<picture class="w-full flex-[0_0_100%]">
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-mobile.avif"
+							type="image/avif"
+						/>
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-mobile.webp"
+							type="image/webp"
+						/>
 						<img
 							class="h-full w-full object-contain"
-							src="/projects/1-mobile.png"
-							alt=""
+							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-mobile.webp"
+							alt="image 1 JosttStore"
+						/>
+					</picture>
+
+					<picture class="flex-[0_0_100%]">
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/2-mobile.avif"
+							type="image/avif"
+						/>
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/2-mobile.webp"
+							type="image/webp"
+						/>
+						<img
+							class="h-full object-contain"
+							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/2-mobile.webp"
+							alt="image 2 JosttStore"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/3-mobile.avif"
+							type="image/avif"
+						/>
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/3-mobile.webp"
+							type="image/webp"
+						/>
 						<img
 							class="h-full object-contain"
-							src="/projects/2-mobile.png"
-							alt=""
+							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/3-mobile.webp"
+							alt="image 3 JosttStore"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/4-mobile.avif"
+							type="image/avif"
+						/>
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/4-mobile.webp"
+							type="image/webp"
+						/>
 						<img
 							class="h-full object-contain"
-							src="/projects/3-mobile.png"
-							alt=""
+							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/4-mobile.webp"
+							alt="image 4 JosttStore"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/5-mobile.avif"
+							type="image/avif"
+						/>
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/5-mobile.webp"
+							type="image/webp"
+						/>
 						<img
 							class="h-full object-contain"
-							src="/projects/4-mobile.png"
-							alt=""
+							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/5-mobile.webp"
+							alt="image 5 JosttStore"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
-						<img
-							class="h-full object-contain"
-							src="/projects/5-mobile.png"
-							alt=""
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/6-mobile.avif"
+							type="image/avif"
 						/>
-					</picture>
-					<picture class="flex-[0_0_100%]">
+						<source
+							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/6-mobile.webp"
+							type="image/webp"
+						/>
 						<img
 							class="h-full object-contain"
-							src="/projects/6-mobile.png"
-							alt=""
+							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/6-mobile.webp"
+							alt="image 6 JosttStore"
 						/>
 					</picture>
 				</div>
 			</div>
-			<button type="button" class="next h-12 w-12 self-center rounded-full">
+			<button
+				type="button"
+				aria-label="Next"
+				title="Next"
+				aria-labelledby="Next"
+				class="next h-12 w-12 self-center rounded-full"
+			>
 				<svg viewBox="0 0 22 22">
 					<path
 						fill="none"
@@ -103,7 +172,7 @@ import JosttStoreDescription from './JosttStoreDescription.astro'
 		>
 			<SvgReact />
 			<SvgTailwind />
-			<SvgRedux />
+			<SvgRedux width={60} />
 		</div>
 	</div>
 </section>
@@ -154,79 +223,82 @@ import JosttStoreDescription from './JosttStoreDescription.astro'
 </style>
 
 <script>
-	// Obtener referencias a los elementos del DOM
-	const imageTrackElement =
-		document.querySelector<HTMLDivElement>('.image-track')
-	const prevBtnElement = document.querySelector<HTMLButtonElement>('.prev')
-	const nextBtnElement = document.querySelector<HTMLButtonElement>('.next')
-	const images = document.querySelectorAll<HTMLPictureElement>(
-		'.image-track picture'
-	)
-	const imageCounter = document.querySelector<HTMLDivElement>('.image-counter')
+	window.addEventListener('load', () => {
+		// Obtener referencias a los elementos del DOM
+		const imageTrackElement =
+			document.querySelector<HTMLDivElement>('.image-track')
+		const prevBtnElement = document.querySelector<HTMLButtonElement>('.prev')
+		const nextBtnElement = document.querySelector<HTMLButtonElement>('.next')
+		const images = document.querySelectorAll<HTMLPictureElement>(
+			'.image-track picture'
+		)
+		const imageCounter =
+			document.querySelector<HTMLDivElement>('.image-counter')
 
-	// Verificar si los elementos existen
-	if (imageTrackElement && prevBtnElement && nextBtnElement && imageCounter) {
-		const imageTrack = imageTrackElement
-		const prevBtn = prevBtnElement
-		const nextBtn = nextBtnElement
+		// Verificar si los elementos existen
+		if (imageTrackElement && prevBtnElement && nextBtnElement && imageCounter) {
+			const imageTrack = imageTrackElement
+			const prevBtn = prevBtnElement
+			const nextBtn = nextBtnElement
 
-		let currentIndex = 0
-		const containerWidth = imageTrack.offsetWidth
-		let counterTimeout: ReturnType<typeof setTimeout> | null = null
+			let currentIndex = 0
+			const containerWidth = imageTrack.offsetWidth
+			let counterTimeout: ReturnType<typeof setTimeout> | null = null
 
-		// Función para activar/desactivar el botón
-		const toggleButton = (btn: HTMLButtonElement, isActive: boolean) => {
-			btn.disabled = !isActive
-			btn.classList.toggle('disable-button', !isActive)
-			btn.classList.toggle('active-button', isActive)
-		}
-
-		// Función para manejar el estado de los botones
-		const handleButtonState = () => {
-			toggleButton(prevBtn, currentIndex !== 0)
-			toggleButton(nextBtn, currentIndex !== images.length - 1)
-		}
-
-		const showImageCounter = (index: number) => {
-			imageCounter.textContent = `${index + 1}/${images.length}`
-			imageCounter.style.opacity = '1'
-
-			if (counterTimeout) {
-				clearTimeout(counterTimeout)
+			// Función para activar/desactivar el botón
+			const toggleButton = (btn: HTMLButtonElement, isActive: boolean) => {
+				btn.disabled = !isActive
+				btn.classList.toggle('disable-button', !isActive)
+				btn.classList.toggle('active-button', isActive)
 			}
 
-			counterTimeout = setTimeout(() => {
-				imageCounter.style.opacity = '0'
-				counterTimeout = null
-			}, 800)
-		}
-
-		handleButtonState()
-
-		// Función para mostrar la siguiente imagen
-		const showNextImage = () => {
-			if (!nextBtn.disabled) {
-				currentIndex = (currentIndex + 1) % images.length
-				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
-				showImageCounter(currentIndex)
-				handleButtonState()
+			// Función para manejar el estado de los botones
+			const handleButtonState = () => {
+				toggleButton(prevBtn, currentIndex !== 0)
+				toggleButton(nextBtn, currentIndex !== images.length - 1)
 			}
-		}
 
-		// Función para mostrar la imagen anterior
-		const showPrevImage = () => {
-			if (!prevBtn.disabled) {
-				currentIndex = (currentIndex - 1 + images.length) % images.length
-				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
-				showImageCounter(currentIndex)
-				handleButtonState()
+			const showImageCounter = (index: number) => {
+				imageCounter.textContent = `${index + 1}/${images.length}`
+				imageCounter.style.opacity = '1'
+
+				if (counterTimeout) {
+					clearTimeout(counterTimeout)
+				}
+
+				counterTimeout = setTimeout(() => {
+					imageCounter.style.opacity = '0'
+					counterTimeout = null
+				}, 800)
 			}
-		}
 
-		// Agregar event listeners a los botones
-		prevBtn.addEventListener('click', showPrevImage)
-		nextBtn.addEventListener('click', showNextImage)
-	} else {
-		console.error('Uno o más elementos del carrusel no se encontraron.')
-	}
+			handleButtonState()
+
+			// Función para mostrar la siguiente imagen
+			const showNextImage = () => {
+				if (!nextBtn.disabled) {
+					currentIndex = (currentIndex + 1) % images.length
+					imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+					showImageCounter(currentIndex)
+					handleButtonState()
+				}
+			}
+
+			// Función para mostrar la imagen anterior
+			const showPrevImage = () => {
+				if (!prevBtn.disabled) {
+					currentIndex = (currentIndex - 1 + images.length) % images.length
+					imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+					showImageCounter(currentIndex)
+					handleButtonState()
+				}
+			}
+
+			// Agregar event listeners a los botones
+			prevBtn.addEventListener('click', showPrevImage)
+			nextBtn.addEventListener('click', showNextImage)
+		} else {
+			console.error('Uno o más elementos del carrusel no se encontraron.')
+		}
+	})
 </script>

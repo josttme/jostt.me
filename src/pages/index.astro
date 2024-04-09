@@ -4,7 +4,7 @@ import Card from '../components/Card.astro'
 import Social from '../components/Social.astro'
 import Skills from '../components/Skills.astro'
 import BlogCard from '../components/BlogCard.astro'
-import ProjectCard from '../components/ProjectCard.astro'
+import JosttStore from '../components/josttstore/JosttStore.astro'
 ---
 
 <Layout
@@ -69,13 +69,14 @@ import ProjectCard from '../components/ProjectCard.astro'
 			<Social />
 		</section>
 		<section
-			class="mx-2 flex w-auto flex-col gap-7 pb-4 pt-4 lg:mx-auto lg:w-full lg:max-w-6xl"
+			class="mx-2 flex w-auto flex-col gap-7 pb-4 pt-4 lg:mx-auto lg:w-full lg:max-w-7xl"
 		>
 			<h2 class="text-center text-3xl font-semibold text-[#14a1ff]">
 				Proyectos
 			</h2>
+
 			<div class="grid gap-5">
-				<ProjectCard />
+				<JosttStore />
 				<div
 					class="mb-14 grid w-full grid-cols-card place-content-stretch gap-10 pt-5"
 				>

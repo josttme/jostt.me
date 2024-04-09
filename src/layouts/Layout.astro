@@ -12,7 +12,7 @@ const { title, description } = Astro.props
 
 <!doctype html>
 <html lang="es">
-	<head>
+	<html>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="preload" as="image" href="/logo.png" />
@@ -25,6 +25,15 @@ const { title, description } = Astro.props
 			crossorigin
 		/>
 
+		<link
+			rel="preconnect"
+			href="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev"
+			crossorigin
+		/>
+		<link
+			rel="dns-prefetch"
+			href="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev"
+		/>
 		<link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
 		<link rel="dns-prefetch" href="https://res.cloudinary.com" />
 		<meta name="application-name" content="josu.dev" />
@@ -39,42 +48,42 @@ const { title, description } = Astro.props
 		<meta name="author" content="Josue Tapia (JosttMe)" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title></head
-	>
+		<title>{title}</title>
 
-	<body style="background-color: #000021; color: #fff; ">
-		<Header />
-		<slot />
-		<div class="glas"></div>
-		<Footer />
-	</body>
+		<body style="background-color: #000021; color: #fff; ">
+			<Header />
+			<slot />
+			<div class="glas"></div>
+			<Footer />
+		</body>
+	</html>
+	<style is:global>
+		body {
+			font-family: 'Nunito', system-ui, sans-serif;
+		}
+		@font-face {
+			font-family: 'Nunito';
+			font-style: normal;
+			src: url('/nunito.regular.woff2') format('woff2');
+			font-display: swap;
+			priority: true;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.glas {
+			background: rgb(0 153 255/0.1);
+			filter: blur(100px);
+			width: 300px;
+			height: 300px;
+			position: fixed;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 50%;
+			top: 230px;
+			z-index: -1;
+		}
+	</style>
 </html>
-<style is:global>
-	body {
-		font-family: 'Nunito', system-ui, sans-serif;
-	}
-	@font-face {
-		font-family: 'Nunito';
-		font-style: normal;
-		src: url('/nunito.regular.woff2') format('woff2');
-		font-display: swap;
-		priority: true;
-	}
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-	.glas {
-		background: rgb(0 153 255/0.1);
-		filter: blur(100px);
-		width: 300px;
-		height: 300px;
-		position: fixed;
-		transform: translate(-50%, -50%);
-		left: 50%;
-		top: 50%;
-		top: 230px;
-		z-index: -1;
-	}
-</style>

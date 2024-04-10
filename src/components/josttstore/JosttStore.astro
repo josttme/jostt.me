@@ -5,26 +5,25 @@ import { SvgRedux } from '../icons/SvgRedux'
 import JosttStoreDescription from './JosttStoreDescription.astro'
 ---
 
-<section class="min-w-6xl w-full overflow-hidden rounded-2xl bg-[#0253bb]">
+<section class="overflow-hidden rounded-2xl bg-[#0253bb]">
 	<div
-		class="grid min-h-[687px] place-content-center gap-3 lg:grid-cols-[815px_427px] lg:grid-rows-1 lg:p-5"
+		class="grid place-content-center gap-3 lg:max-h-[674px] lg:min-h-[674px] lg:grid-cols-[800px_421px] lg:grid-rows-1 lg:gap-5 lg:p-5"
 	>
-		<div class="h-full w-auto overflow-hidden rounded-xl shadow-md">
-			<picture class="h-full w-auto">
+		<div class="h-full w-full overflow-hidden rounded-xl shadow-md">
+			<picture class="h-full w-full">
 				<source
-					srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-desktop.avif"
+					srcset="https://cdn.josu.dev/1-desktop.avif"
 					type="image/avif"
 				/>
 				<source
-					srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-desktop.webp"
+					srcset="https://cdn.josu.dev/1-desktop.webp"
 					type="image/webp"
 				/>
 				<img
-					class="h-full w-auto object-contain"
-					src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-desktop.webp"
+					class="h-full w-full object-contain"
+					src="https://cdn.josu.dev/1-desktop.webp"
 					alt="image 1 desktop JosttStore"
-					width="800"
-					height="500"
+					loading="lazy"
 				/>
 			</picture>
 		</div>
@@ -47,100 +46,106 @@ import JosttStoreDescription from './JosttStoreDescription.astro'
 						d="m12 15-4-4 4-4"></path>
 				</svg>
 			</button>
-			<div class="image-container relative rounded-xl shadow-md">
+			<div class="image-container relative h-full w-auto rounded-xl shadow-md">
 				<span
 					class="image-counter absolute right-0 top-0 z-10 m-2 flex items-center rounded-xl border border-solid border-white bg-black/40 px-2 align-middle text-sm leading-normal tracking-widest text-white opacity-0 transition-all"
 				></span>
 				<div class="image-track mx-auto flex h-full w-auto">
-					<picture class="w-full flex-[0_0_100%]">
+					<picture class="h-full w-auto flex-[0_0_100%]">
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-mobile.avif"
+							srcset="https://cdn.josu.dev/1-mobile.avif"
 							type="image/avif"
 						/>
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-mobile.webp"
+							srcset="https://cdn.josu.dev/1-mobile.webp"
 							type="image/webp"
 						/>
 						<img
-							class="h-full w-full object-contain"
-							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/1-mobile.webp"
+							class="h-full w-auto object-contain"
+							src="https://cdn.josu.dev/1-mobile.webp"
 							alt="image 1 JosttStore"
+							loading="lazy"
 						/>
 					</picture>
 
 					<picture class="flex-[0_0_100%]">
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/2-mobile.avif"
+							srcset="https://cdn.josu.dev/2-mobile.avif"
 							type="image/avif"
 						/>
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/2-mobile.webp"
+							srcset="https://cdn.josu.dev/2-mobile.webp"
 							type="image/webp"
 						/>
 						<img
 							class="h-full object-contain"
-							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/2-mobile.webp"
+							src="https://cdn.josu.dev/2-mobile.webp"
 							alt="image 2 JosttStore"
+							loading="lazy"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/3-mobile.avif"
+							srcset="https://cdn.josu.dev/3-mobile.avif"
 							type="image/avif"
 						/>
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/3-mobile.webp"
+							srcset="https://cdn.josu.dev/3-mobile.webp"
 							type="image/webp"
 						/>
 						<img
 							class="h-full object-contain"
-							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/3-mobile.webp"
+							src="https://cdn.josu.dev/3-mobile.webp"
 							alt="image 3 JosttStore"
+							loading="lazy"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/4-mobile.avif"
+							srcset="https://cdn.josu.dev/4-mobile.avif"
 							type="image/avif"
 						/>
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/4-mobile.webp"
+							srcset="https://cdn.josu.dev/4-mobile.webp"
 							type="image/webp"
 						/>
 						<img
 							class="h-full object-contain"
-							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/4-mobile.webp"
+							src="https://cdn.josu.dev/4-mobile.webp"
 							alt="image 4 JosttStore"
+							loading="lazy"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/5-mobile.avif"
+							srcset="https://cdn.josu.dev/5-mobile.avif"
 							type="image/avif"
 						/>
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/5-mobile.webp"
+							srcset="https://cdn.josu.dev/5-mobile.webp"
 							type="image/webp"
 						/>
 						<img
 							class="h-full object-contain"
-							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/5-mobile.webp"
+							src="https://cdn.josu.dev/5-mobile.webp"
 							alt="image 5 JosttStore"
+							loading="lazy"
 						/>
 					</picture>
 					<picture class="flex-[0_0_100%]">
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/6-mobile.avif"
+							srcset="https://cdn.josu.dev/6-mobile.avif"
 							type="image/avif"
 						/>
 						<source
-							srcset="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/6-mobile.webp"
+							srcset="https://cdn.josu.dev/6-mobile.webp"
 							type="image/webp"
 						/>
 						<img
 							class="h-full object-contain"
-							src="https://pub-4e9a15aa8b53479ebe172c07a01785d2.r2.dev/6-mobile.webp"
+							src="https://cdn.josu.dev/6-mobile.webp"
 							alt="image 6 JosttStore"
+							loading="lazy"
 						/>
 					</picture>
 				</div>

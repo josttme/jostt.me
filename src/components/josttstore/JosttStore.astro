@@ -228,82 +228,81 @@ import JosttStoreDescription from './JosttStoreDescription.astro'
 </style>
 
 <script>
-	window.addEventListener('load', () => {
-		// Obtener referencias a los elementos del DOM
-		const imageTrackElement =
-			document.querySelector<HTMLDivElement>('.image-track')
-		const prevBtnElement = document.querySelector<HTMLButtonElement>('.prev')
-		const nextBtnElement = document.querySelector<HTMLButtonElement>('.next')
-		const images = document.querySelectorAll<HTMLPictureElement>(
-			'.image-track picture'
-		)
-		const imageCounter =
-			document.querySelector<HTMLDivElement>('.image-counter')
+	// Obtener referencias a los elementos del DOM
+	const imageTrackElement =
+		document.querySelector<HTMLDivElement>('.image-track')
+	const prevBtnElement = document.querySelector<HTMLButtonElement>('.prev')
+	const nextBtnElement = document.querySelector<HTMLButtonElement>('.next')
+	const images = document.querySelectorAll<HTMLPictureElement>(
+		'.image-track picture'
+	)
+	const imageCounter = document.querySelector<HTMLDivElement>('.image-counter')
 
-		// Verificar si los elementos existen
-		if (imageTrackElement && prevBtnElement && nextBtnElement && imageCounter) {
-			const imageTrack = imageTrackElement
-			const prevBtn = prevBtnElement
-			const nextBtn = nextBtnElement
+	// Verificar si los elementos existen
+	if (imageTrackElement && prevBtnElement && nextBtnElement && imageCounter) {
+		// Tu código existente aquí
+		const imageTrack = imageTrackElement
+		const prevBtn = prevBtnElement
+		const nextBtn = nextBtnElement
 
-			let currentIndex = 0
-			const containerWidth = imageTrack.offsetWidth
-			let counterTimeout: ReturnType<typeof setTimeout> | null = null
+		let currentIndex = 0
+		const containerWidth = imageTrack.clientWidth
+		let counterTimeout: ReturnType<typeof setTimeout> | null = null
 
-			// Función para activar/desactivar el botón
-			const toggleButton = (btn: HTMLButtonElement, isActive: boolean) => {
-				btn.disabled = !isActive
-				btn.classList.toggle('disable-button', !isActive)
-				btn.classList.toggle('active-button', isActive)
-			}
-
-			// Función para manejar el estado de los botones
-			const handleButtonState = () => {
-				toggleButton(prevBtn, currentIndex !== 0)
-				toggleButton(nextBtn, currentIndex !== images.length - 1)
-			}
-
-			const showImageCounter = (index: number) => {
-				imageCounter.textContent = `${index + 1}/${images.length}`
-				imageCounter.style.opacity = '1'
-
-				if (counterTimeout) {
-					clearTimeout(counterTimeout)
-				}
-
-				counterTimeout = setTimeout(() => {
-					imageCounter.style.opacity = '0'
-					counterTimeout = null
-				}, 800)
-			}
-
-			handleButtonState()
-
-			// Función para mostrar la siguiente imagen
-			const showNextImage = () => {
-				if (!nextBtn.disabled) {
-					currentIndex = (currentIndex + 1) % images.length
-					imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
-					showImageCounter(currentIndex)
-					handleButtonState()
-				}
-			}
-
-			// Función para mostrar la imagen anterior
-			const showPrevImage = () => {
-				if (!prevBtn.disabled) {
-					currentIndex = (currentIndex - 1 + images.length) % images.length
-					imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
-					showImageCounter(currentIndex)
-					handleButtonState()
-				}
-			}
-
-			// Agregar event listeners a los botones
-			prevBtn.addEventListener('click', showPrevImage)
-			nextBtn.addEventListener('click', showNextImage)
-		} else {
-			console.error('Uno o más elementos del carrusel no se encontraron.')
+		// Función para activar/desactivar el botón
+		const toggleButton = (btn: HTMLButtonElement, isActive: boolean) => {
+			btn.disabled = !isActive
+			btn.classList.toggle('disable-button', !isActive)
+			btn.classList.toggle('active-button', isActive)
 		}
-	})
+
+		// Función para manejar el estado de los botones
+		const handleButtonState = () => {
+			toggleButton(prevBtn, currentIndex !== 0)
+			toggleButton(nextBtn, currentIndex !== images.length - 1)
+		}
+
+		const showImageCounter = (index: number) => {
+			imageCounter.textContent = `${index + 1}/${images.length}`
+			imageCounter.style.opacity = '1'
+
+			if (counterTimeout) {
+				clearTimeout(counterTimeout)
+			}
+
+			counterTimeout = setTimeout(() => {
+				imageCounter.style.opacity = '0'
+				counterTimeout = null
+			}, 800)
+		}
+
+		handleButtonState()
+
+		// Función para mostrar la siguiente imagen
+		const showNextImage = () => {
+			if (!nextBtn.disabled) {
+				currentIndex = (currentIndex + 1) % images.length
+				const containerWidth = imageTrack.clientWidth
+				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+				showImageCounter(currentIndex)
+				handleButtonState()
+			}
+		}
+
+		// Función para mostrar la imagen anterior
+		const showPrevImage = () => {
+			if (!prevBtn.disabled) {
+				currentIndex = (currentIndex - 1 + images.length) % images.length
+				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
+				showImageCounter(currentIndex)
+				handleButtonState()
+			}
+		}
+
+		// Agregar event listeners a los botones
+		prevBtn.addEventListener('click', showPrevImage)
+		nextBtn.addEventListener('click', showNextImage)
+	} else {
+		console.error('Uno o más elementos del carrusel no se encontraron.')
+	}
 </script>

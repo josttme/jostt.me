@@ -293,6 +293,7 @@ import JosttStoreDescription from './JosttStoreDescription.astro'
 		const showPrevImage = () => {
 			if (!prevBtn.disabled) {
 				currentIndex = (currentIndex - 1 + images.length) % images.length
+				const containerWidth = imageTrack.clientWidth
 				imageTrack.style.transform = `translateX(-${currentIndex * containerWidth}px)`
 				showImageCounter(currentIndex)
 				handleButtonState()
